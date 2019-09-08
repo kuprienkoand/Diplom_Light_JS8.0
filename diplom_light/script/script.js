@@ -17,14 +17,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
     popupCall.addEventListener('click', (event) => {
       let target = event.target;
-
       if (target.classList.contains('popup-close')) {
         popupCall.style.display = 'none';
       } else {
         target = target.closest('.popup-content');
-
         if (!target) {
           popupCall.style.display = 'none';
+        }
+      }
+    });
+
+    // Модальное окно со скидкой popup-discount
+
+    const popupDiscount = document.querySelector('.popup-discount'),
+        discountBtn = document.querySelectorAll('.discount-btn');
+
+      discountBtn.forEach((elem) => {
+        elem.addEventListener('click', () => {
+          popupDiscount.style.display = 'block';
+        });
+      });
+
+    popupDiscount.addEventListener('click', (event) => {
+      let target = event.target;
+      if (target.classList.contains('popup-close')) {
+        popupDiscount.style.display = 'none';
+      } else {
+        target = target.closest('.popup-content');
+        if (!target) {
+          popupDiscount.style.display = 'none';
         }
       }
     });
@@ -212,6 +233,7 @@ window.addEventListener('DOMContentLoaded', () => {
  // Кнопка Больше
 
   const btnMore = () => {
+
     const shadowBlock = document.querySelectorAll('.sentence .row .col-xs-12'),
       addSentenceBtn = document.querySelector('.add-sentence-btn');
 
@@ -224,5 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   btnMore();
+
+  
 
 });
